@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Скачай макс</title>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    .wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* сайт на фоне */
+    iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+
+      /* сайт ничего не получает */
+      pointer-events: none;
+    }
+
+    /* прозрачный слой сверху */
+    .overlay {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <iframe src="https://max.ru"></iframe>
+
+  <!-- прозрачный слой для кликов -->
+  <div class="overlay" id="overlay"></div>
+</div>
+
+<!-- звук -->
+<audio id="sound" src="https://github.com/reachingthestarsalone-a11y/Olamabot/raw/refs/heads/main/audio.mp3"></audio>
+
+<script>
+  const overlay = document.getElementById('overlay');
+  const sound = document.getElementById('sound');
+
+  overlay.addEventListener('click', () => {
+    sound.currentTime = 0;
+    sound.play();
+  });
+</script>
+
+</body>
+</html>
